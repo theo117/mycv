@@ -1954,3 +1954,19 @@ input, select, textarea {
         display: none; /* icon-only on very small screens */
       }
     }
+/* 1. Fix background click blocking */
+#bg,
+#bg:before,
+#bg:after {
+  pointer-events: none;
+}
+
+/* 2. Lower WhatsApp overlay */
+.whatsapp-btn {
+  z-index: 50;
+}
+
+/* 3. Make disabled buttons actually disabled */
+.button.disabled {
+  pointer-events: none;
+}
