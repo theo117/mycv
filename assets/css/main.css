@@ -1092,7 +1092,7 @@ input, select, textarea {
 		button:disabled,
 		.button.disabled,
 		.button:disabled {
-			pointer-events: none;
+			pointer-events: auto;
 			cursor: default;
 			opacity: 0.25;
 		}
