@@ -1961,12 +1961,6 @@ input, select, textarea {
   pointer-events: none;
 }
 
-/* 2. Lower WhatsApp overlay */
-.whatsapp-btn {
-  z-index: 50;
-}
 
-/* 3. Make disabled buttons actually disabled */
-.button.disabled {
-  pointer-events: none;
-}
+
+
