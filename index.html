@@ -1,0 +1,539 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <title>Theodore Nelson | CV</title>
+
+  <!-- Main template CSS -->
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+
+  <!-- Google Font -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+
+  <style>
+    :root {
+      --accent: #0099ff;
+    }
+
+    body, h1, h2, h3, h4, p, a, label, input, textarea {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    /* Header / Hero */
+    #header .logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #header .logo .logo-text {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      border: 2px solid var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-size: 1rem;
+    }
+
+    #header .inner h1 {
+      font-size: 2.1rem;
+      margin-bottom: 0.35rem;
+    }
+
+    #header .inner p {
+      font-size: 0.95rem;
+      opacity: 0.9;
+    }
+
+    #header nav ul li a {
+      border-radius: 999px;
+      padding: 0.4rem 1.1rem;
+    }
+
+    #header nav ul li a:hover,
+    #header nav ul li a.active {
+      background: var(--accent);
+      color: #fff !important;
+    }
+
+    /* Shared article styles */
+    #main article h2.major {
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-size: 1.3rem;
+    }
+
+    #main article p {
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    /* Profile image - About section */
+   #intro .image.main img {
+  width: 240px;
+  height: 240px;
+  object-fit: contain;
+  background: #000; /* Or transparent */
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.5);
+  margin: 0 auto 1.5rem auto;
+  display: block;
+}
+
+
+    #intro .tagline {
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 0.75rem;
+    }
+
+    #intro .skills-pill-group {
+      margin-top: 1.2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    #intro .skills-pill {
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      padding: 0.3rem 0.8rem;
+      font-size: 0.8rem;
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(4px);
+    }
+
+    /* Projects grid */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .project-card {
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 16px;
+      padding: 1.1rem 1.2rem;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.35);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+
+    .project-card h3 {
+      font-size: 1.0rem;
+      margin: 0 0 0.4rem 0;
+    }
+
+    .project-card .stack {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      opacity: 0.65;
+      margin-bottom: 0.7rem;
+    }
+
+    .project-card a {
+      font-size: 0.85rem;
+      text-decoration: none;
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .project-card a::after {
+      content: " ↗";
+      font-size: 0.85em;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.55);
+      border-color: rgba(0, 153, 255, 0.6);
+    }
+
+    /* Experience / Work section */
+    .job {
+      margin-bottom: 1.4rem;
+    }
+
+    .job-title {
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+    }
+
+    .job-meta {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      opacity: 0.7;
+      margin-bottom: 0.4rem;
+    }
+
+    .job ul {
+      list-style: disc;
+      margin: 0 0 0 1.4rem;
+      padding: 0;
+      font-size: 0.9rem;
+    }
+
+    .job ul li {
+      margin-bottom: 0.25rem;
+    }
+
+    /* Education section */
+    .edu-item {
+      margin-bottom: 1.1rem;
+    }
+
+    .edu-title {
+      font-weight: 600;
+    }
+
+    .edu-meta {
+      font-size: 0.8rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      opacity: 0.7;
+      margin-bottom: 0.35rem;
+    }
+
+    /* Contact form tweaks */
+    #contact form .actions input.primary {
+      background-color: var(--accent);
+      border-radius: 999px;
+      border: none;
+    }
+
+    #contact form .actions input.primary:hover {
+      filter: brightness(1.08);
+    }
+
+    /* Social icons */
+    #contact .icons {
+      margin-top: 1.4rem;
+    }
+
+    #contact .icons li a {
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 0.45rem 0.8rem;
+    }
+
+    /* WhatsApp Floating Button */
+    .whatsapp-btn {
+      position: fixed;
+      bottom: 18px;
+      right: 18px;
+      z-index: 9999;
+    }
+
+    .whatsapp-btn a {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background-color: #25d366;
+      color: white;
+      text-decoration: none;
+      padding: 11px 18px;
+      border-radius: 999px;
+      font-weight: 600;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      font-size: 0.9rem;
+      transition: transform 0.16s ease, box-shadow 0.16s ease, background-color 0.16s ease;
+    }
+
+    .whatsapp-btn a:hover {
+      background-color: #1ebe5d;
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.55);
+    }
+
+    .whatsapp-btn img {
+      width: 26px;
+      height: 26px;
+    }
+
+    @media screen and (max-width: 736px) {
+      #header .inner h1 {
+        font-size: 1.6rem;
+      }
+
+      .whatsapp-btn {
+        bottom: 14px;
+        right: 14px;
+      }
+
+      .whatsapp-btn a span {
+        display: none; /* icon-only on very small screens */
+      }
+    }
+  </style>
+</head>
+<body class="is-preload">
+
+<!-- Wrapper -->
+<div id="wrapper">
+
+  <!-- Header / Hero -->
+  <header id="header">
+    <div class="logo">
+      <div class="logo-text">TN</div>
+    </div>
+    <div class="content">
+      <div class="inner">
+        <h1>Theodore Nelson</h1>
+        <p>Junior Software Developer &amp; Web Developer<br/>
+          Java · Spring Boot · React · Android</p>
+      </div>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#intro">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#work">Experience</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main -->
+  <div id="main">
+
+    <!-- About -->
+    <article id="intro">
+      <h2 class="major">About</h2>
+      <span class="image main">
+        <!-- Replace with your real profile image -->
+        <img src="images/pic05.jpg" alt="Profile photo of Theodore Nelson" />
+      </span>
+
+      <p class="tagline">Detail-oriented junior software developer with a support background and a passion for building reliable, practical solutions.</p>
+
+      <p>
+        I’m a dedicated software developer with hands-on experience designing and building Java desktop apps, Android apps,
+        and modern web applications. I enjoy turning requirements into clean, maintainable code and I’ve worked with tools
+        like Spring Boot, React, MySQL, JPA, and REST APIs.
+      </p>
+
+      <p>
+        My previous roles in IT support and application support taught me how to troubleshoot under pressure, communicate
+        clearly with non-technical users, and keep systems running smoothly—skills I now apply as a developer.
+      </p>
+
+      <div class="skills-pill-group">
+        <span class="skills-pill">Java · Spring Boot</span>
+        <span class="skills-pill">React · HTML · CSS</span>
+        <span class="skills-pill">MySQL · JPA · JDBC</span>
+        <span class="skills-pill">Android · Kotlin (basics)</span>
+        <span class="skills-pill">Git · GitHub</span>
+      </div>
+    </article>
+
+    <!-- Projects -->
+    <article id="projects">
+      <h2 class="major">Projects</h2>
+
+      <div class="projects-grid">
+        <div class="project-card">
+          <h3>Winter School Booking App</h3>
+          <div class="stack">Java · MySQL · JPA</div>
+          <p>Desktop booking system for managing winter school registrations, learners, and classes with persistent storage and validation.</p>
+          <a href="https://github.com/theo117/WinterSchoolBookingApp" target="_blank">View on GitHub</a>
+        </div>
+
+        <div class="project-card">
+          <h3>POS App</h3>
+          <div class="stack">Java · Swing · JDBC · MySQL</div>
+          <p>Point of Sale desktop application with product management, cart functionality, and transaction recording using MySQL.</p>
+          <a href="https://github.com/theo117/POSApp" target="_blank">View on GitHub</a>
+        </div>
+
+        <div class="project-card">
+          <h3>Community App</h3>
+          <div class="stack">Java · JPA · MySQL</div>
+          <p>Community management tool for tracking members, events, and basic reporting using a relational database.</p>
+          <a href="https://github.com/theo117/CommunityApp" target="_blank">View on GitHub</a>
+        </div>
+
+        <div class="project-card">
+          <h3>Ordering System</h3>
+          <div class="stack">Java · Swing · OOP</div>
+          <p>Fish &amp; chips ordering system showcasing OOP patterns, menu handling, and order summaries in a desktop UI.</p>
+          <a href="https://github.com/theo117/FishAndChipsApp" target="_blank">View on GitHub</a>
+        </div>
+
+        <div class="project-card">
+          <h3>User Registration Web App</h3>
+          <div class="stack">Spring Boot · React · HTML/CSS</div>
+          <p>Full-stack web app for user registration with form validation and API integration between a Spring Boot backend and React frontend.</p>
+          <a href="https://github.com/theo117/UserRegistrationWeb" target="_blank">View on GitHub</a>
+        </div>
+
+        <div class="project-card">
+          <h3>African Green – Recycling Register</h3>
+          <div class="stack">Android · Java</div>
+          <p>Android app for recording recycling data and tracking visits, built for easy on-site data capture.</p>
+          <a href="https://github.com/theo117/african-green-app/releases/download/v1.0.0/app-african-green.apk" target="_blank">Download APK</a>
+        </div>
+
+        <div class="project-card">
+          <h3>Piketberg Gardeners Task Tracker</h3>
+          <div class="stack">Android · Java</div>
+          <p>Weekly task tracking app for estate gardening teams, focusing on clear scheduling and task completion tracking.</p>
+          <a href="https://github.com/theo117/piketberg-gardeners-app/releases/download/v1.0.0/app-piketberg-gardeners.apk" target="_blank">Download APK</a>
+        </div>
+
+        <div class="project-card">
+          <h3>Portfolio Website</h3>
+          <div class="stack">HTML · CSS · JavaScript</div>
+          <p>Personal portfolio and CV website used to showcase projects and experience: theodorenelson.co.za.</p>
+          <a href="https://www.theodorenelson.co.za" target="_blank">Visit Website</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Experience -->
+    <article id="work">
+      <h2 class="major">Experience</h2>
+
+      <div class="job">
+        <div class="job-title">Freelance Web Developer</div>
+        <div class="job-meta">Teodor · Jan 2025 – Present</div>
+        <ul>
+          <li>Design and build responsive websites for small businesses using HTML, CSS, and JavaScript.</li>
+          <li>Implement contact forms, basic SEO, and performance optimisations.</li>
+          <li>Provide hosting guidance and basic maintenance support.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-title">IT Support Technician</div>
+        <div class="job-meta">Adcock Ingram · Sept 2017 – Dec 2019</div>
+        <ul>
+          <li>Provided first &amp; second-level support for business applications and users.</li>
+          <li>Monitored application performance, availability, and reliability.</li>
+          <li>Investigated and resolved user-reported incidents and escalations.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-title">Regional IT Technician</div>
+        <div class="job-meta">Shoprite / Checkers · Jul 2015 – Aug 2017</div>
+        <ul>
+          <li>Supported multiple retail branches across Gauteng.</li>
+          <li>Troubleshot hardware, network, and operating system issues.</li>
+          <li>Configured LAN/WAN setups and supported VPN tools used by store staff.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-title">First Line Application Support</div>
+        <div class="job-meta">NetsurIT · Jun 2013 – Jun 2015</div>
+        <ul>
+          <li>Delivered IT service desk and backup support to business users.</li>
+          <li>Assisted with user administration, server access, and OS reloads.</li>
+          <li>Supported SharePoint, antivirus, and patch management processes.</li>
+        </ul>
+      </div>
+    </article>
+
+    <!-- Education -->
+    <article id="education">
+      <h2 class="major">Education</h2>
+
+      <div class="edu-item">
+        <div class="edu-title">System Development (NQF 6)</div>
+        <div class="edu-meta">Boston City Campus · Jan 2022 – Dec 2024</div>
+        <p>Focus areas: Java, Databases, Web Services, Software Engineering, and SDLC.</p>
+      </div>
+
+      <div class="edu-item">
+        <div class="edu-title">System Support (NQF 5)</div>
+        <div class="edu-meta">Dept. of Higher Education and Training · Jan 2017 – Dec 2017</div>
+        <p>Core topics: desktop and user support, basic networking, and infrastructure.</p>
+      </div>
+
+      <div class="edu-item">
+        <div class="edu-title">Microsoft Certified Technology Specialist (MCTS)</div>
+        <div class="edu-meta">Torque IT · Jan 2012 – Dec 2012</div>
+        <p>Microsoft technologies, operating systems, and enterprise environments.</p>
+      </div>
+    </article>
+
+    <!-- Contact -->
+    <article id="contact">
+      <h2 class="major">Contact</h2>
+      <p>Let’s connect about junior developer roles, freelance work, or collaborations.</p>
+
+      <form action="https://api.web3forms.com/submit" method="POST">
+        <!-- Web3Forms Access Key -->
+        <input type="hidden" name="access_key" value="70124a7c-659a-460e-ab1f-0a1529f80ec8">
+
+        <div class="fields">
+          <div class="field half">
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name" placeholder="Your name" required>
+          </div>
+
+          <div class="field half">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" placeholder="Your email" required>
+          </div>
+
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea name="message" id="message" rows="4" placeholder="Write your message here..." required></textarea>
+          </div>
+        </div>
+
+        <ul class="actions">
+          <li><input type="submit" value="Send Message" class="primary"></li>
+          <li><input type="reset" value="Reset"></li>
+        </ul>
+      </form>
+
+      <ul class="icons">
+        <li>
+          <a href="https://www.linkedin.com/in/theodore-nelson-90b05144/" class="icon brands fa-linkedin" target="_blank">
+            <span class="label">LinkedIn</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/theo117" class="icon brands fa-github" target="_blank">
+            <span class="label">GitHub</span>
+          </a>
+        </li>
+      </ul>
+    </article>
+
+  </div>
+
+</div>
+
+<!-- WhatsApp Floating Button -->
+<div class="whatsapp-btn">
+  <a href="https://wa.me/27606360886" target="_blank">
+    <img src="images/whatsapp-icon.gif" alt="WhatsApp">
+    <span>Chat with me</span>
+  </a>
+</div>
+
+<!-- Scripts -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+
+</body>
+</html>
